@@ -14,5 +14,6 @@ public class Funcionario {
     private double percentualComissao;
     private String cargo;
     private Date dataContratacao;
+    private  Endereco endereco;
 
 }
