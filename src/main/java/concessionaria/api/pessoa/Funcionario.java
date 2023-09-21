@@ -34,7 +34,14 @@ public class Funcionario {
     private Cargo cargo;
     @NotBlank @Column(name = "data_contratacao")
     private Date dataContratacao;
-    @Embedded
-    private  Endereco endereco;
+    @NotBlank
+    private String uf;
+    @NotBlank
+    private String cidade;
+    @NotBlank
+    private String cep;
+    @NotBlank
+    private String numero;
+    private String complemento;
 
 }

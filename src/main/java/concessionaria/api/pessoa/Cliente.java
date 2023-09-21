@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(of = "cpfOuCnpj")
 public class Cliente {
-    @Id @Column(name = "cpf_cnpj")
+    @Id @Column(name = "cpf_cnpj", columnDefinition = "VARCHAR(12) DEFAULT 'valorpadrao'")
     private String cpfOuCnpj;
     @NotBlank
     private String nome;
@@ -21,6 +21,13 @@ public class Cliente {
     @Email
     private String email;
     private String compras;
-    @Embedded
-    private Endereco endereco;
+    @NotBlank
+    private String uf;
+    @NotBlank
+    private String cidade;
+    @NotBlank
+    private String cep;
+    @NotBlank
+    private String numero;
+    private String complemento;
 }
