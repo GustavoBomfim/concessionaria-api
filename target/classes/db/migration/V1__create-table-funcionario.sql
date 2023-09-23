@@ -1,6 +1,7 @@
 create table funcionario
 (
-    id               bigint,
+    id               bigint NOT NULL AUTO_INCREMENT,
+    cpf_cnpj         varchar(12),
     nome             varchar(100),
     telefone         varchar(13),
     email            varchar(50),
