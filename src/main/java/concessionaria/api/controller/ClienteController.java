@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 @RestController
 @RequestMapping(value = "/cliente")
 public class ClienteController {
@@ -21,4 +22,12 @@ public class ClienteController {
         clienteRepository.save(cliente);
     }
 
+    @GetMapping()
+    public List<Cliente> allClientes(){
+        return clienteRepository.findAll();
+    }
+    @GetMapping(value = "/buscarPorId/{cpfOuCnpj}")
+    public Cliente buscarClientePeloId(@PathVariable String cpfOuCnpj){
+        return clienteRepository.getReferenceById(cpfOuCnpj);
+    }
 }
