@@ -4,10 +4,11 @@ import concessionaria.api.pessoa.Funcionario;
 import concessionaria.api.pessoa.FuncionarioDTO;
 import concessionaria.api.pessoa.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/funcionario")
@@ -20,4 +21,21 @@ public class FuncionarioController {
         Funcionario funcionario = new Funcionario(dto);
         funcionarioRepository.save(funcionario);
     }
+
+    @GetMapping()
+    public List<Funcionario> buscarFuncionarios(){
+        return funcionarioRepository.findAll();
+    }
+
+    @GetMapping(value = "/buscarPorId/{id}")
+    public Optional<Funcionario> buscarFuncionarioPorId(@PathVariable Long id){
+        return funcionarioRepository.findById(id);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Funcionario> deletarFuncionarioPorId(@PathVariable Long id){
+        funcionarioRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
