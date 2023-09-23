@@ -1,9 +1,11 @@
 package concessionaria.api.controller;
 
 import concessionaria.api.pessoa.Cliente;
+import concessionaria.api.pessoa.ClienteDTO;
 import concessionaria.api.pessoa.ClienteRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +17,8 @@ public class ClienteController {
     ClienteRepository clienteRepository;
 
     @PostMapping(value = "/cadastrar")
-    public void cadastrarCliente(@RequestBody @Valid Cliente cliente){
-        if(cliente.getCpfOuCnpj() == null){
-            cliente.setCpfOuCnpj("valor padrao");
-        }
-        clienteRepository.save(cliente);
+    public ResponseEntity cadastrarCliente(@RequestBody @Valid ClienteDTO clienteDTO){
+        return ResponseEntity.ok(clienteRepository.save(new Cliente(clienteDTO)));
     }
 
     @GetMapping()
@@ -29,5 +28,10 @@ public class ClienteController {
     @GetMapping(value = "/buscarPorId/{cpfOuCnpj}")
     public Cliente buscarClientePeloId(@PathVariable String cpfOuCnpj){
         return clienteRepository.getReferenceById(cpfOuCnpj);
+    }
+    @DeleteMapping("/{cpfOuCnpj}")
+    public ResponseEntity deletarClientePeloId(@PathVariable String cpfOuCnpj){
+        clienteRepository.deleteById(cpfOuCnpj);
+        return ResponseEntity.noContent().build();
     }
 }
