@@ -4,20 +4,15 @@ create table veiculo
     placa      varchar(10),
     disponivel boolean,
     preco double,
-    primary key (chassi)
-);
-create table modelo
-(
-    FK_chassi       varchar(17),
     marca           varchar(30),
     cor             varchar(30),
     ano_fabricacao  int,
     ano_modelo      int,
     combustivel     varchar(15),
     portas          int,
-    teso_solar      boolean,
+    teto_solar      boolean,
     ar_condicionado boolean,
-    foreign key (FK_chassi) references veiculo (chassi)
+    primary key (chassi)
 );
 create table cliente
 (
