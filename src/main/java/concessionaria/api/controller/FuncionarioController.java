@@ -28,8 +28,8 @@ public class FuncionarioController {
     }
 
     @GetMapping(value = "/buscarPorId/{id}")
-    public Optional<Funcionario> buscarFuncionarioPorId(@PathVariable Long id){
-        return funcionarioRepository.findById(id);
+    public Funcionario buscarFuncionarioPorId(@PathVariable Long id){
+        return funcionarioRepository.getReferenceById(id);
     }
 
     @DeleteMapping(value = "/{id}")
