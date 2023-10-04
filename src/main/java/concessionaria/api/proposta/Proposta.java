@@ -36,18 +36,4 @@ public class Proposta {
         this.setStatusPagamento(dto.getStatusPagamento());
     }
 
-    public Cliente encontrarClientePorId(String id){
-        ClienteController clienteController = new ClienteController();
-        return clienteController.buscarClientePeloId(id);
-    }
-
-    public Funcionario encontrarFuncionarioPorId(Long id){
-        FuncionarioController controller = new FuncionarioController();
-        return controller.buscarFuncionarioPorId(id);
-    }
-
-    public Veiculo encontrarVeiculoPorId(String id){
-        VeiculoController controller = new VeiculoController();
-        return controller.buscarVeiculoPorId(id);
-    }
 }
