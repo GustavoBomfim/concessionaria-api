@@ -53,10 +53,14 @@ public class Funcionario {
     @NotBlank
     private String numero;
     private String complemento;
-    //private Double valorTotalComissoes;
-    //private Double salarioFinal;
+    @JsonIgnore
+    @Column(name = "valor_comissoes")
+    private Double valorComissoes;
+    @JsonIgnore
+    @Column(name = "salario_final")
+    private Double salarioFinal;
     @OneToMany
-    @JoinColumn(name = "comissao_id")
+    @JoinColumn(name = "FK_id_proposta")
     @JsonIgnore
     private List<Proposta> propostas;
 

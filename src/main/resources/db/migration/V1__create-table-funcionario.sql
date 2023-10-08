@@ -8,6 +8,8 @@ create table funcionario
     compras          varchar(70),
     salario_base double,
     percentual_comissao double,
+    salario_final double,
+    valor_comissoes double,
     cargo            varchar(30),
     data_contratacao date,
     uf               varchar(2),
