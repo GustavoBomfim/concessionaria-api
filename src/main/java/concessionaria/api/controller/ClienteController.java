@@ -1,8 +1,8 @@
 package concessionaria.api.controller;
 
-import concessionaria.api.pessoa.Cliente;
-import concessionaria.api.pessoa.ClienteDTO;
-import concessionaria.api.pessoa.ClienteRepository;
+import concessionaria.api.model.entity.Cliente;
+import concessionaria.api.model.dto.ClienteDTO;
+import concessionaria.api.model.repository.ClienteRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

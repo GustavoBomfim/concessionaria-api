@@ -1,14 +1,13 @@
 package concessionaria.api.controller;
 
-import concessionaria.api.pessoa.Funcionario;
-import concessionaria.api.pessoa.FuncionarioDTO;
-import concessionaria.api.pessoa.FuncionarioRepository;
+import concessionaria.api.model.entity.Funcionario;
+import concessionaria.api.model.dto.FuncionarioDTO;
+import concessionaria.api.model.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/funcionario")

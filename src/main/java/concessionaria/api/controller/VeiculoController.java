@@ -1,8 +1,8 @@
 package concessionaria.api.controller;
 
-import concessionaria.api.veiculo.Veiculo;
-import concessionaria.api.veiculo.VeiculoDTO;
-import concessionaria.api.veiculo.VeiculoRepository;
+import concessionaria.api.model.entity.Veiculo;
+import concessionaria.api.model.dto.VeiculoDTO;
+import concessionaria.api.model.repository.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
