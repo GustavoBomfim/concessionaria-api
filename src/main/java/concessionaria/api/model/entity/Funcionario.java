@@ -1,6 +1,7 @@
 package concessionaria.api.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import concessionaria.api.model.dto.FuncionarioDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -13,6 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "funcionario")
 @Entity(name = "Funcionario")
@@ -34,7 +36,7 @@ public class Funcionario {
     private String compras;
     @NotNull @Column(name = "salario_base")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private BigDecimal salarioBase;
+    private Double salarioBase;
     @NotNull @Column(name = "percentual_comissao")
     private double percentualComissao;
     @Enumerated(EnumType.STRING)
@@ -51,6 +53,12 @@ public class Funcionario {
     @NotBlank
     private String numero;
     private String complemento;
+    //private Double valorTotalComissoes;
+    //private Double salarioFinal;
+    @OneToMany
+    @JoinColumn(name = "comissao_id")
+    @JsonIgnore
+    private List<Proposta> propostas;
 
     public Funcionario(FuncionarioDTO dto){
         this.setCpfOuCnpj(dto.getCpfOuCnpj());

@@ -27,7 +27,7 @@ public class FuncionarioDTO {
     private String compras;
     @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private BigDecimal salarioBase;
+    private Double salarioBase;
     @NotNull
     private double percentualComissao;
     @Enumerated(EnumType.STRING)

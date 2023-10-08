@@ -17,8 +17,10 @@ public class Proposta {
     private int id;
     @Column(name = "FK_cpf_cnpj")
     private String cliente;
-    @Column(name = "FK_id_funcionario")
-    private Long funcionario;
+    //@Column(name = "FK_id_funcionario")
+    @ManyToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "FK_id_funcionario")
+    private Funcionario funcionario;
     @Column(name = "chassi")
     private String veiculo;
     @Column(name = "status_pagamento")
