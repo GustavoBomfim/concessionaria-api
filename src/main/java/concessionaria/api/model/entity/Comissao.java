@@ -14,8 +14,9 @@ public class Comissao {
     private int id;
     @Column(name = "FK_id_proposta")
     private int proposta;
-    @Column(name = "FK_id_funcionario")
-    private Long funcionario;
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "FK_id_funcionario")
+    private Funcionario funcionario;
 
     public Comissao(ComissaoDTO dto){
         this.setProposta(dto.getProposta());

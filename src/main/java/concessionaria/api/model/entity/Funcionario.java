@@ -63,6 +63,9 @@ public class Funcionario {
     @JoinColumn(name = "FK_id_proposta")
     @JsonIgnore
     private List<Proposta> propostas;
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "FK_id_comissao")
+    private List<Comissao> comissaos;
 
     public Funcionario(FuncionarioDTO dto){
         this.setCpfOuCnpj(dto.getCpfOuCnpj());

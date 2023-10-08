@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/funcionario")
@@ -27,8 +28,8 @@ public class FuncionarioController {
     }
 
     @GetMapping(value = "/buscarPorId/{id}")
-    public Funcionario buscarFuncionarioPorId(@PathVariable Long id){
-        return funcionarioRepository.getReferenceById(id);
+    public Optional<Funcionario> buscarFuncionarioPorId(@PathVariable Long id){
+        return funcionarioRepository.findById(id);
     }
 
     @DeleteMapping(value = "/{id}")
